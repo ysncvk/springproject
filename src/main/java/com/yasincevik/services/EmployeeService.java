@@ -13,6 +13,16 @@ public class EmployeeService {
     private EmployeeRepository employeeRepository;
 
     public List<Employee> getAllEmployeeList(){
-         return employeeRepository.getAllEmployeeList();
+        return employeeRepository.getAllEmployeeList();
     }
+
+    public Employee getEmployeeById(String Id){
+        return employeeRepository.getEmployeeById(Id);
+    }
+
+    public List<Employee> getAllEmployeeWithParams(String firstName, String lastName){
+        return employeeRepository.getEmployeeWithParams(firstName,lastName);
+    }
+
+
 }
