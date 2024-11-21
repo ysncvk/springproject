@@ -24,5 +24,11 @@ public class EmployeeService {
         return employeeRepository.getEmployeeWithParams(firstName,lastName);
     }
 
+    public List<Employee> saveNewEmployee (Employee newEmployee) {
+        return employeeRepository.saveNewEmployee(newEmployee);
+    }
 
+    public Boolean deleteEmployee (String Id) {
+        return employeeRepository.deleteEmployee(Id);
+    }
 }

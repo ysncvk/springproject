@@ -27,4 +27,15 @@ public class RestEmployeeController {
 
         return employeeService.getAllEmployeeWithParams(firstName,lastName);
     }
+
+    @PostMapping(path="/create")
+    public List<Employee> saveEmployee(@RequestBody Employee newEmployee) {
+        System.out.println("post isteği çalıştı");
+        return employeeService.saveNewEmployee(newEmployee);
+    }
+
+    @DeleteMapping(path="delete/{id}")
+    public  Boolean deleteEmployee ( @PathVariable String id) {
+        return employeeService.deleteEmployee(id);
+    }
 }

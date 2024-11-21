@@ -58,4 +58,24 @@ public class EmployeeRepository {
         return findedEmployees;
 
     }
+
+    public List<Employee> saveNewEmployee (Employee newEmployee) {
+        employeeList.add(newEmployee);
+        return employeeList;
+    }
+
+    public Boolean deleteEmployee (String Id) {
+        boolean result = false;
+        if (Id == null) {
+            return result;
+        }
+        for (Employee employee: employeeList) {
+            if(employee.getId().equals(Id)) {
+                employeeList.remove(employee);
+                result = true;
+                break;
+            }
+        }
+        return result;
+    }
 }
