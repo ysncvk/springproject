@@ -1,13 +1,16 @@
 package com.yasincevik.controller;
 
 import com.yasincevik.model.Employee;
+import com.yasincevik.model.UpdateEmployeeRequest;
 import com.yasincevik.services.EmployeeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Slf4j
 @RequestMapping("/rest/api/employee")
 public class RestEmployeeController {
     @Autowired
@@ -37,5 +40,11 @@ public class RestEmployeeController {
     @DeleteMapping(path="delete/{id}")
     public  Boolean deleteEmployee ( @PathVariable String id) {
         return employeeService.deleteEmployee(id);
+    }
+    @PutMapping(path="update/{id}")
+    public Employee updateEmployee(@PathVariable String id, @RequestBody UpdateEmployeeRequest request){
+        System.out.println(id);
+        log.info();
+        return employeeService.updateEmployee(id,request);
     }
 }

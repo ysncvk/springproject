@@ -1,6 +1,7 @@
 package com.yasincevik.repository;
 
 import com.yasincevik.model.Employee;
+import com.yasincevik.model.UpdateEmployeeRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -77,5 +78,23 @@ public class EmployeeRepository {
             }
         }
         return result;
+    }
+
+    public Employee updateEmployee (String id, UpdateEmployeeRequest request) {
+
+        Employee updatedEmployee = new Employee();
+        updatedEmployee.setId(id);
+        updatedEmployee.setFirstName(request.getFirstName());
+        updatedEmployee.setLastName(request.getLastName());
+
+        for (Employee employee: employeeList) {
+            if(employee.getId().equals(id)){
+                employeeList.remove(employee);
+                employeeList.add(updatedEmployee);
+                break;
+            }
+        }
+
+        return updatedEmployee;
     }
 }

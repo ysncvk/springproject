@@ -1,6 +1,7 @@
 package com.yasincevik.services;
 
 import com.yasincevik.model.Employee;
+import com.yasincevik.model.UpdateEmployeeRequest;
 import com.yasincevik.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,5 +31,9 @@ public class EmployeeService {
 
     public Boolean deleteEmployee (String Id) {
         return employeeRepository.deleteEmployee(Id);
+    }
+
+    public Employee updateEmployee (String Id, UpdateEmployeeRequest request){
+        return employeeRepository.updateEmployee(Id,request);
     }
 }
